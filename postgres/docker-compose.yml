@@ -1,7 +1,10 @@
 version: '3'
 services:
   mydb:
-    image: postgres
+    image: postgres  
+    environment: 
+      POSTGRES_DB: "mydb"
+      POSTGRES_HOST_AUTH_METHOD: "trust" #is not recomended to production
     volumes:
       - db-data:/var/lib/postgresql/data
     ports:
@@ -9,7 +12,6 @@ services:
     environment:
       POSTGRES_DB: "db"
       POSTGRES_HOST_AUTH_METHOD: "trust"
-
 volumes:
   db-data:
     driver: local
