@@ -1,6 +1,7 @@
 version: '3'
 services:
   mydb:
+    restart: always 
     image: postgres  
     environment: 
       POSTGRES_DB: "mydb"
