@@ -1,22 +1,19 @@
 #docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=yourStrong(!)Password' -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-CU8-ubuntu
 
-
-
 version: '3'
 services:
   mydb:
     image: mcr.microsoft.com/mssql/server:2017-CU8-ubuntu
     ports:
       - 1433:1433
-    environment: 
+    environment:
       ACCEPT_EULA: "Y"
       SA_PASSWORD: "sa"
-    volumes: 
-      - /home/francisco/projects/sqlserver/volume/backups:/var/opt/mssql/backups
-      - /home/francisco/projects/sqlserver/volume/sqlserver:/var/opt/sqlserver
-      - /home/francisco/projects/sqlserver/volume/mssql:/var/opt/mssql
+    volumes:
+      - /home/luizaguiar/projects/sqlserver/volume/backups:/var/opt/mssql/backups
+      - /home/luizaguiar/projects/sqlserver/volume/sqlserver:/var/opt/sqlserver
+      - /home/luizaguiar/projects/sqlserver/volume/mssql:/var/opt/mssql
 
- 
 volumes:
   db-data:
     driver: local
